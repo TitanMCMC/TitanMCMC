@@ -4,94 +4,595 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>TitanMCMC | فروشگاه و سرور ماینکرفت</title>
+
 <style>
-*{box-sizing:border-box}body{margin:0;background:#080808;color:#fff;font-family:Tahoma,Arial,sans-serif;line-height:1.8}
-nav{position:sticky;top:0;z-index:10;background:#111;border-bottom:2px solid #f57c00;padding:14px 5%;display:flex;justify-content:space-between;align-items:center;gap:15px}
-.logo{font-size:25px;font-weight:900;color:#ff8500}.links{display:flex;gap:16px;flex-wrap:wrap}.links a{color:#fff;text-decoration:none}.links a:hover{color:#ff8500}
-.hero{text-align:center;padding:75px 20px;background:radial-gradient(circle,#2a1605,#080808 60%)}h1{font-size:clamp(42px,10vw,80px);color:#ff8500;margin:0;text-shadow:0 0 22px #7a3b00}
-.hero p{color:#ddd;font-size:19px}.btn{border:0;border-radius:8px;background:#ff8500;color:#111;padding:11px 22px;font-size:16px;font-weight:bold;cursor:pointer;margin:5px}.btn:hover{background:#ffb45c}
-section{max-width:1150px;margin:auto;padding:60px 6%}.title{text-align:center;color:#ff8500;font-size:34px;margin-bottom:8px}.sub{text-align:center;color:#bbb;margin-bottom:30px}
-.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:20px}.card{background:#141414;border:1px solid #333;border-radius:14px;padding:25px;text-align:center}.card:hover{border-color:#ff8500}.card h3{color:#ff8500;font-size:25px;margin:0 0 8px}.price{font-size:23px;font-weight:bold;margin:14px 0}.desc{color:#ccc;min-height:55px}
-.box{background:#121212;border:1px solid #f57c00;border-radius:14px;padding:24px;text-align:center}.ip{direction:ltr;display:inline-block;color:#ffb45c;font-size:21px}
-li{margin:10px 0;color:#ddd}footer{text-align:center;background:#111;border-top:1px solid #333;padding:28px;color:#aaa}footer b{color:#ff8500}
-.modal{display:none;position:fixed;inset:0;background:#000c;z-index:50;align-items:center;justify-content:center;padding:20px}.modalbox{background:#151515;border:1px solid #ff8500;border-radius:14px;padding:25px;width:min(430px,100%);text-align:center}.modalbox input{width:100%;padding:13px;background:#222;color:#fff;border:1px solid #555;border-radius:8px;margin:12px 0;text-align:center}
-.close{float:left;color:#aaa;font-size:24px;cursor:pointer}
-@media(max-width:650px){nav{display:block;text-align:center}.links{justify-content:center;margin-top:8px}.ip{font-size:16px}}
+*{box-sizing:border-box}
+body{
+margin:0;
+background:#080808;
+color:#fff;
+font-family:Tahoma,Arial,sans-serif;
+line-height:1.8
+}
+
+nav{
+position:sticky;
+top:0;
+z-index:10;
+background:#111;
+border-bottom:2px solid #f57c00;
+padding:14px 5%;
+display:flex;
+justify-content:space-between;
+align-items:center;
+gap:15px
+}
+
+.logo{
+font-size:25px;
+font-weight:900;
+color:#ff8500
+}
+
+.links{
+display:flex;
+gap:16px;
+flex-wrap:wrap
+}
+
+.links a{
+color:#fff;
+text-decoration:none
+}
+
+.links a:hover{
+color:#ff8500
+}
+
+.hero{
+text-align:center;
+padding:75px 20px;
+background:radial-gradient(circle,#2a1605,#080808 60%)
+}
+
+h1{
+font-size:clamp(42px,10vw,80px);
+color:#ff8500;
+margin:0;
+text-shadow:0 0 22px #7a3b00
+}
+
+.hero p{
+color:#ddd;
+font-size:19px
+}
+
+.btn{
+border:0;
+border-radius:8px;
+background:#ff8500;
+color:#111;
+padding:11px 22px;
+font-size:16px;
+font-weight:bold;
+cursor:pointer;
+margin:5px
+}
+
+.btn:hover{
+background:#ffb45c
+}
+
+section{
+max-width:1150px;
+margin:auto;
+padding:60px 6%
+}
+
+.title{
+text-align:center;
+color:#ff8500;
+font-size:34px;
+margin-bottom:8px
+}
+
+.sub{
+text-align:center;
+color:#bbb;
+margin-bottom:30px
+}
+
+.cards{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+gap:20px
+}
+
+.card{
+background:#141414;
+border:1px solid #333;
+border-radius:14px;
+padding:25px;
+text-align:center
+}
+
+.card:hover{
+border-color:#ff8500
+}
+
+.card h3{
+color:#ff8500;
+font-size:25px;
+margin:0 0 8px
+}
+
+.price{
+font-size:23px;
+font-weight:bold;
+margin:14px 0
+}
+
+.desc{
+color:#ccc;
+min-height:55px
+}
+
+.box{
+background:#121212;
+border:1px solid #f57c00;
+border-radius:14px;
+padding:24px;
+text-align:center
+}
+
+.ip{
+direction:ltr;
+display:inline-block;
+color:#ffb45c;
+font-size:21px
+}
+
+li{
+margin:10px 0;
+color:#ddd
+}
+
+footer{
+text-align:center;
+background:#111;
+border-top:1px solid #333;
+padding:28px;
+color:#aaa
+}
+
+footer b{
+color:#ff8500
+}
+
+.modal{
+display:none;
+position:fixed;
+inset:0;
+background:#000c;
+z-index:50;
+align-items:center;
+justify-content:center;
+padding:20px
+}
+
+.modalbox{
+background:#151515;
+border:1px solid #ff8500;
+border-radius:14px;
+padding:25px;
+width:min(430px,100%);
+text-align:center
+}
+
+.modalbox input{
+width:100%;
+padding:13px;
+background:#222;
+color:#fff;
+border:1px solid #555;
+border-radius:8px;
+margin:12px 0;
+text-align:center
+}
+
+.close{
+float:left;
+color:#aaa;
+font-size:24px;
+cursor:pointer
+}
+
+/* Social Icons */
+.socials{
+display:flex;
+justify-content:center;
+align-items:center;
+gap:30px;
+flex-wrap:wrap;
+margin-top:25px
+}
+
+.social{
+text-decoration:none;
+text-align:center;
+transition:transform .2s
+}
+
+.social:hover{
+transform:translateY(-6px)
+}
+
+.social-icon{
+width:90px;
+height:90px;
+border-radius:50%;
+display:flex;
+align-items:center;
+justify-content:center;
+overflow:hidden;
+margin:auto;
+box-shadow:0 0 18px rgba(255,255,255,.15)
+}
+
+.social-icon img{
+width:58px;
+height:58px;
+object-fit:contain
+}
+
+.social-name{
+color:#fff;
+margin:8px 0 0
+}
+
+.telegram{
+background:#229ED9;
+box-shadow:0 0 18px #229ED9
+}
+
+discord{
+background:#5865F2;
+box-shadow:0 0 18px #5865F2
+}
+
+.rubika{
+background:#e91e63;
+box-shadow:0 0 18px #e91e63
+}
+
+.rubika img{
+width:100%;
+height:100%;
+object-fit:cover
+}
+
+@media(max-width:650px){
+nav{
+display:block;
+text-align:center
+}
+
+.links{
+justify-content:center;
+margin-top:8px
+}
+
+.ip{
+font-size:16px
+}
+
+.socials{
+gap:20px
+}
+}
 </style>
 </head>
+
 <body>
+
 <nav>
 <div class="logo">TitanMCMC</div>
+
 <div class="links">
-<a href="#home">خانه</a><a href="#modes">گیم‌مودها</a><a href="#store">فروشگاه</a><a href="#rules">قوانین</a><a href="#contact">ارتباط</a>
+<a href="#home">خانه</a>
+<a href="#modes">گیم‌مودها</a>
+<a href="#store">فروشگاه</a>
+<a href="#rules">قوانین</a>
+<a href="#contact">ارتباط</a>
 </div>
 </nav>
 
+
 <header class="hero" id="home">
+
 <h1>TitanMCMC</h1>
+
 <p>سرور ماینکرفت ایرانی با گیم‌مودهای متنوع</p>
+
 <p><b>پشتیبانی از همه نسخه‌ها</b></p>
+
 <a class="btn" href="#store">فروشگاه</a>
 <a class="btn" href="#modes">گیم‌مودها</a>
+
 <div class="box">
-<p>آدرس سرور</p><span class="ip">TitanMCMC.aternos.me:33791</span><br>
-<button class="btn" onclick="copyIP()">کپی IP</button><div id="copied"></div>
+
+<p>آدرس سرور</p>
+
+<span class="ip">TitanMCMC.aternos.me:33791</span>
+
+<br>
+
+<button class="btn" onclick="copyIP()">کپی IP</button>
+
+<div id="copied"></div>
+
 </div>
+
 </header>
 
+
 <section id="modes">
-<h2 class="title">گیم‌مودها</h2><p class="sub">بخش موردنظر خود را انتخاب کنید</p>
+
+<h2 class="title">گیم‌مودها</h2>
+
+<p class="sub">بخش موردنظر خود را انتخاب کنید</p>
+
 <div class="cards">
-<div class="card"><h3>Survival بی‌قانون</h3><p class="desc">بقا و PvP با آزادی بیشتر.</p></div>
-<div class="card"><h3>Survival با قانون</h3><p class="desc">Survival منظم برای بازی گروهی.</p></div>
-<div class="card"><h3>Sky Mine</h3><p class="desc">ماینینگ، پیشرفت و ارتقای مخصوص Sky Mine.</p></div>
+
+<div class="card">
+<h3>Survival بی‌قانون</h3>
+<p class="desc">بقا و PvP با آزادی بیشتر.</p>
 </div>
+
+<div class="card">
+<h3>Survival با قانون</h3>
+<p class="desc">Survival منظم برای بازی گروهی.</p>
+</div>
+
+<div class="card">
+<h3>Sky Mine</h3>
+<p class="desc">ماینینگ، پیشرفت و ارتقای مخصوص Sky Mine.</p>
+</div>
+
+</div>
+
 </section>
+
 
 <section id="store">
-<h2 class="title">فروشگاه TitanMCMC</h2><p class="sub">رنک و Money موردنظر خود را انتخاب کنید</p>
+
+<h2 class="title">فروشگاه TitanMCMC</h2>
+
+<p class="sub">رنک و Money موردنظر خود را انتخاب کنید</p>
+
 <div class="cards">
-<div class="card"><h3>VIP</h3><p class="desc">رنک VIP با امکانات ویژه</p><div class="price">۱۰٬۰۰۰ تومان</div><button class="btn" onclick="buy('VIP','۱۰٬۰۰۰ تومان')">خرید VIP</button></div>
-<div class="card"><h3>LEGEND</h3><p class="desc">رنک Legend با امکانات بیشتر</p><div class="price">۲۰٬۰۰۰ تومان</div><button class="btn" onclick="buy('LEGEND','۲۰٬۰۰۰ تومان')">خرید LEGEND</button></div>
-<div class="card"><h3>TITAN</h3><p class="desc">رنک ویژه TitanMCMC</p><div class="price">۳۵٬۰۰۰ تومان</div><button class="btn" onclick="buy('TITAN','۳۵٬۰۰۰ تومان')">خرید TITAN</button></div>
-<div class="card"><h3>Money</h3><p class="desc">۱۰۰۰ واحد Money داخل سرور</p><div class="price">۱۰٬۰۰۰ تومان</div><button class="btn" onclick="buy('۱۰۰۰ Money','۱۰٬۰۰۰ تومان')">خرید Money</button></div>
+
+<div class="card">
+<h3>VIP</h3>
+<p class="desc">رنک VIP با امکانات ویژه</p>
+<div class="price">۱۰٬۰۰۰ تومان</div>
+<button class="btn" onclick="buy('VIP','۱۰٬۰۰۰ تومان')">خرید VIP</button>
 </div>
+
+<div class="card">
+<h3>LEGEND</h3>
+<p class="desc">رنک Legend با امکانات بیشتر</p>
+<div class="price">۲۰٬۰۰۰ تومان</div>
+<button class="btn" onclick="buy('LEGEND','۲۰٬۰۰۰ تومان')">خرید LEGEND</button>
+</div>
+
+<div class="card">
+<h3>TITAN</h3>
+<p class="desc">رنک ویژه TitanMCMC</p>
+<div class="price">۳۵٬۰۰۰ تومان</div>
+<button class="btn" onclick="buy('TITAN','۳۵٬۰۰۰ تومان')">خرید TITAN</button>
+</div>
+
+<div class="card">
+<h3>Money</h3>
+<p class="desc">۱۰۰۰ واحد Money داخل سرور</p>
+<div class="price">۱۰٬۰۰۰ تومان</div>
+<button class="btn" onclick="buy('۱۰۰۰ Money','۱۰٬۰۰۰ تومان')">خرید Money</button>
+</div>
+
+</div>
+
 </section>
+
 
 <section id="rules">
+
 <h2 class="title">قوانین خرید</h2>
-<div class="box"><ul>
+
+<div class="box">
+
+<ul>
+
 <li>نام کاربری Minecraft را قبل از خرید با دقت بررسی کنید.</li>
+
 <li>رنک‌ها فقط روی سرور TitanMCMC قابل استفاده هستند.</li>
+
 <li>شرایط بازگشت وجه مطابق قوانین فروشگاه است.</li>
+
 <li>در صورت مشکل در خرید با پشتیبانی یا مدیریت تماس بگیرید.</li>
+
 <li>تقلب یا سوءاستفاده از سیستم خرید ممنوع است.</li>
+
 <li>قوانین فروشگاه ممکن است تغییر کند.</li>
+
 <li>ثبت سفارش به معنی پذیرش قوانین خرید است.</li>
-</ul></div>
+
+</ul>
+
+</div>
+
 </section>
+
 
 <section id="contact">
+
 <h2 class="title">ارتباط با ما</h2>
-<div class="box"><p>سرور: <b>TitanMCMC</b></p><p>IP: <span class="ip">TitanMCMC.aternos.me:33791</span></p></div>
+
+<div class="box">
+
+<p>برای ارتباط و پشتیبانی، ما را در شبکه‌های اجتماعی دنبال کنید:</p>
+
+<div class="socials">
+
+
+<!-- Telegram -->
+
+<a class="social"
+href="https://t.me/TitanMCMC"
+target="_blank">
+
+<div class="social-icon telegram">
+
+<img
+src="https://cdn.simpleicons.org/telegram/ffffff"
+alt="Telegram">
+
+</div>
+
+<p class="social-name">تلگرام</p>
+
+</a>
+
+
+<!-- Rubika -->
+
+<a class="social"
+href="https://rubika.ir/TitanMCMC"
+target="_blank">
+
+<div class="social-icon rubika">
+
+<img
+src="https://commons.wikimedia.org/wiki/Special:Redirect/file/Rubika%20Icon.png"
+alt="Rubika">
+
+</div>
+
+<p class="social-name">روبیکا</p>
+
+</a>
+
+
+<!-- Discord -->
+
+<a class="social"
+href="https://discord.gg/wR7hgMWcc"
+target="_blank">
+
+<div class="social-icon discord">
+
+<img
+src="https://cdn.simpleicons.org/discord/ffffff"
+alt="Discord">
+
+</div>
+
+<p class="social-name">دیسکورد</p>
+
+</a>
+
+
+</div>
+
+</div>
+
 </section>
 
-<footer>© 2026 <b>TitanMCMC</b> — تمامی حقوق محفوظ است.</footer>
+
+<footer>
+
+© 2026 <b>TitanMCMC</b> — تمامی حقوق محفوظ است.
+
+</footer>
+
 
 <div class="modal" id="modal">
-<div class="modalbox"><span class="close" onclick="closeModal()">×</span>
-<h2 id="pname" style="color:#ff8500"></h2><p id="pprice"></p>
-<p>نام کاربری Minecraft:</p><input id="username" placeholder="Minecraft Username">
+
+<div class="modalbox">
+
+<span class="close" onclick="closeModal()">×</span>
+
+<h2 id="pname" style="color:#ff8500"></h2>
+
+<p id="pprice"></p>
+
+<p>نام کاربری Minecraft:</p>
+
+<input id="username" placeholder="Minecraft Username">
+
 <button class="btn" onclick="continueBuy()">ادامه خرید</button>
+
 <p id="msg" style="color:#ffb45c"></p>
-</div></div>
+
+</div>
+
+</div>
+
 
 <script>
+
 let product='';
-function copyIP(){navigator.clipboard.writeText('TitanMCMC.aternos.me:33791').then(()=>document.getElementById('copied').textContent='IP کپی شد.').catch(()=>document.getElementById('copied').textContent='TitanMCMC.aternos.me:33791')}
-function buy(n,p){product=n;document.getElementById('pname').textContent=n;document.getElementById('pprice').textContent='قیمت: '+p;document.getElementById('username').value='';document.getElementById('msg').textContent='';document.getElementById('modal').style.display='flex'}
-function closeModal(){document.getElementById('modal').style.display='none'}
-function continueBuy(){let u=document.getElementById('username').value.trim();document.getElementById('msg').textContent=u?'این بخش آماده اتصال به درگاه پرداخت ایرانی است.':'لطفاً نام کاربری را وارد کنید.'}
+
+function copyIP(){
+
+navigator.clipboard.writeText(
+'TitanMCMC.aternos.me:33791'
+)
+
+.then(()=>document.getElementById('copied').textContent='IP کپی شد.')
+
+.catch(()=>document.getElementById('copied').textContent='TitanMCMC.aternos.me:33791')
+
+}
+
+
+function buy(n,p){
+
+product=n;
+
+document.getElementById('pname').textContent=n;
+
+document.getElementById('pprice').textContent='قیمت: '+p;
+
+document.getElementById('username').value='';
+
+document.getElementById('msg').textContent='';
+
+document.getElementById('modal').style.display='flex'
+
+}
+
+
+function closeModal(){
+
+document.getElementById('modal').style.display='none'
+
+}
+
+
+function continueBuy(){
+
+let u=document.getElementById('username').value.trim();
+
+document.getElementById('msg').textContent=
+
+u
+?'این بخش آماده اتصال به درگاه پرداخت ایرانی است.'
+:'لطفاً نام کاربری را وارد کنید.'
+
+}
+
 </script>
+
 </body>
 </html>
